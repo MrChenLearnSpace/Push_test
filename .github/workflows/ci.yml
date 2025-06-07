@@ -2,6 +2,8 @@ name: CI
 
 on:
   push:
+    tags:
+      - '*'
     branches: [ main ]
   pull_request:
     branches: [ main ]
@@ -28,7 +30,7 @@ jobs:
 
     - name: 上传可执行文件到 Release
       uses: softprops/action-gh-release@v2
-      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      if: startsWith(github.ref, 'refs/tags/')
       with:
         files: Push_test/publish/Push_test
       env:
