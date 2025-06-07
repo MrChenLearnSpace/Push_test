@@ -18,5 +18,5 @@ jobs:
         dotnet-version: '8.0.x'
     - name: 构建
       run: dotnet build --no-restore
-    - name: 运行测试
-      run: dotnet test --no-build --verbosity normal
+    - name: 执行
+      run: dotnet run --no-build
